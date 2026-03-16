@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Covenant Olamide · portfolio</title>
-  <!-- clean, modern stack: no AI colours, just calm UI/UX -->
+  <!-- Purple theme · cohesive & accessible -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
   <style>
-    /* === style.css === */
+    /* === style.css — purple depth, clean UI/UX === */
     * {
       margin: 0;
       padding: 0;
@@ -14,10 +17,10 @@
     }
 
     body {
-      background: #f8fafc;
+      background: #0F0B1F; /* deep purple-black background */
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.5;
-      color: #1e293b;
+      color: #E9E3FF;       /* soft lavender text for general use (high contrast on dark) */
       padding: 2rem 1.5rem;
       display: flex;
       flex-direction: column;
@@ -29,41 +32,43 @@
       width: 100%;
     }
 
-    /* smooth cards & surfaces */
+    /* cards – light, elevated, with purple accents */
     .card {
-      background: #ffffff;
-      border-radius: 28px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.03), 0 4px 8px rgba(0, 0, 0, 0.02);
+      background: #FFFFFF;            /* crisp white card */
+      border-radius: 32px;
+      box-shadow: 0 20px 35px -8px rgba(106, 13, 173, 0.25), 0 8px 12px -4px rgba(0, 0, 0, 0.2);
       padding: 2rem 2.2rem;
-      border: 1px solid #e9eef3;
+      border: 1px solid #B794F4;      /* soft purple border */
       transition: all 0.2s ease;
+      color: #1E1A2B;                 /* dark purple-gray for all card text */
     }
 
     .card:hover {
-      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.04);
-      border-color: #d0d9e3;
+      box-shadow: 0 24px 45px -10px #7C3AED, 0 6px 14px -4px #2D1B4E;
+      border-color: #9F7AEA;
     }
 
-    /* spacing */
+    /* section spacing */
     .section {
       margin-bottom: 2.8rem;
     }
 
-    /* headings – clean, human, not AI */
+    /* headings — strong, readable, purple family */
     h1 {
       font-size: 3.2rem;
       font-weight: 600;
       letter-spacing: -0.02em;
       line-height: 1.1;
-      color: #0f1825;
+      color: #F1E9FF;        /* very light lavender on dark background */
       margin-bottom: 0.4rem;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
 
     .subhead {
       font-size: 1.3rem;
       font-weight: 400;
-      color: #475569;
-      border-left: 4px solid #a5b4cb;
+      color: #D3C4FF;        /* light purple for subhead */
+      border-left: 4px solid #B185FF;
       padding-left: 1.2rem;
       margin-top: 0.2rem;
       margin-bottom: 1.5rem;
@@ -73,7 +78,7 @@
       font-size: 1.8rem;
       font-weight: 500;
       letter-spacing: -0.01em;
-      color: #1f2a41;
+      color: #2A1F3A;        /* deep plum (inside cards) */
       margin-bottom: 1.4rem;
       display: flex;
       align-items: center;
@@ -84,14 +89,14 @@
       content: '';
       flex: 1;
       height: 2px;
-      background: linear-gradient(90deg, #cbd5e1 30%, #eef2f6 90%);
+      background: linear-gradient(90deg, #B794F4 30%, #EDE2FF 90%);
       margin-left: 1rem;
     }
 
     h3 {
       font-size: 1.4rem;
       font-weight: 500;
-      color: #2d3a5e;
+      color: #382B53;        /* dark purple for inside cards */
       margin-bottom: 0.6rem;
     }
 
@@ -109,16 +114,18 @@
       min-width: 280px;
     }
 
+    /* quick badge – on dark background */
     .quick-badge {
-      background: #edf2f7;
+      background: #221C34;           /* deep purple */
       border-radius: 60px;
       padding: 0.6rem 1.5rem;
       display: inline-flex;
       flex-wrap: wrap;
       gap: 0.8rem 1.5rem;
       font-size: 1rem;
-      color: #25445c;
-      border: 1px solid #dde3ea;
+      color: #E2D5FF;                /* light lavender */
+      border: 1px solid #6B46C1;
+      box-shadow: 0 4px 12px rgba(149, 97, 255, 0.3);
     }
 
     .quick-badge span {
@@ -127,53 +134,65 @@
       gap: 0.4rem;
     }
 
-    .quick-badge i { font-style: normal; font-weight: 500; color: #0d2b3e; }
+    .quick-badge i {
+      font-style: normal;
+      font-weight: 500;
+      color: #D6C2FF;
+    }
 
-    /* chips / tags */
+    /* skill tags – on white card */
     .skill-tag {
-      background: #eef4ff;
-      color: #1d3a5c;
+      background: #F0E8FF;           /* soft lavender */
+      color: #3A2A5E;                /* deep purple */
       padding: 0.3rem 1rem;
       border-radius: 40px;
       font-size: 0.9rem;
-      font-weight: 450;
-      border: 1px solid #cdddec;
+      font-weight: 500;
+      border: 1px solid #B794F4;
       display: inline-block;
       margin-right: 0.5rem;
       margin-bottom: 0.6rem;
     }
 
-    .skill-tag.python { background: #ecf7f0; border-color: #b7dac7; }
-    .skill-tag.excel { background: #e3f0e6; border-color: #b3d6bf; }
+    .skill-tag.python,
+    .skill-tag.excel {
+      background: #EADCFA;           /* unified purple tint */
+      border-color: #9F7AEA;
+      color: #2D1F44;
+    }
 
+    /* contact row (on dark, but card-like) */
     .contact-row {
       display: flex;
       flex-wrap: wrap;
       gap: 1.2rem 2rem;
       margin-top: 1.2rem;
-      background: #f5f9ff;
+      background: #1F1933;           /* rich dark purple */
       border-radius: 48px;
       padding: 1rem 1.8rem;
-      border: 1px solid #dde5ef;
+      border: 1px solid #6D4E9E;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.5);
     }
 
     .contact-item {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      color: #1f3a57;
+      color: #E0D2FF;                /* soft lavender */
       text-decoration: none;
       font-size: 1rem;
     }
 
     .contact-item strong {
-      font-weight: 550;
-      color: #0a1e2e;
+      font-weight: 600;
+      color: #F0E6FF;                /* almost white */
     }
 
-    .contact-item:hover { color: #0c4a6e; }
+    .contact-item:hover {
+      color: #C9B0FF;
+    }
 
-    /* github / linkedin inline */
+    /* social links – on dark background */
     .social-links {
       display: flex;
       flex-wrap: wrap;
@@ -182,25 +201,27 @@
     }
 
     .social-link {
-      background: white;
-      border: 1px solid #cfddee;
+      background: #1D162F;           /* deep purple */
+      border: 1px solid #7A5AC9;
       border-radius: 40px;
       padding: 0.5rem 1.3rem;
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
       text-decoration: none;
-      color: #1f3a57;
+      color: #E2D1FF;                /* light lavender */
       font-weight: 450;
-      transition: background 0.15s;
+      transition: 0.15s;
+      box-shadow: 0 4px 10px rgba(119, 76, 209, 0.4);
     }
 
     .social-link:hover {
-      background: #ecf3fd;
-      border-color: #9fb2cc;
+      background: #2C1F48;
+      border-color: #AD8BFF;
+      color: #FFFFFF;
     }
 
-    /* hobby & about grid */
+    /* hobby & about grid (cards inside white card) */
     .grid-2col {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -209,27 +230,38 @@
     }
 
     .hobby-card {
-      background: #fafdff;
+      background: #F8F2FF;           /* icy lavender */
       border-radius: 24px;
       padding: 1.6rem 1.8rem;
-      border: 1px solid #e2eaf2;
+      border: 1px solid #CBB5FF;
+      color: #281F39;                /* dark purple text */
     }
 
-    .hobby-card p { font-size: 1.15rem; margin-top: 0.5rem; }
+    .hobby-card p {
+      font-size: 1.15rem;
+      margin-top: 0.5rem;
+    }
 
+    .hobby-card h3 {
+      color: #31264A;
+    }
+
+    /* certificate item */
     .cert-item {
-      background: #f7fbff;
-      border-left: 5px solid #a7bdd6;
+      background: #F3EAFF;
+      border-left: 5px solid #7C3AED; /* vibrant purple */
       padding: 1rem 1.6rem;
       border-radius: 18px;
       margin-bottom: 1rem;
+      color: #2D2240;
     }
 
+    /* footnote on dark */
     .footnote {
       text-align: center;
-      color: #617388;
+      color: #B8A5E6;                /* medium lavender */
       font-size: 0.9rem;
-      border-top: 1px dashed #cbd5e1;
+      border-top: 1px dashed #6F51A6;
       padding-top: 2rem;
       margin-top: 2rem;
     }
@@ -241,33 +273,69 @@
       .card { padding: 1.5rem; }
     }
 
-    /* simple interactive extras (js will add a little) */
+    /* greeting message – on dark, cohesive */
     .greet-message {
-      background: #f0f4fa;
+      background: #221A38;
       border-radius: 60px;
       padding: 0.6rem 1.5rem;
       font-size: 0.95rem;
-      color: #2b4a6b;
-      border: 1px solid #c7d8ec;
+      color: #DCCEFF;
+      border: 1px solid #8A6CD8;
       display: inline-block;
       margin-bottom: 1rem;
       cursor: pointer;
       user-select: none;
       transition: background 0.15s;
+      box-shadow: 0 4px 8px rgba(86, 46, 162, 0.5);
     }
 
     .greet-message:hover {
-      background: #e1eaf5;
+      background: #312553;
+      border-color: #B28BFF;
+    }
+
+    /* inline background tweaks for readability (inside cards) */
+    .card p, .card li, .card span, .card div {
+      color: #242031;        /* consistent dark purple-gray for all card text */
+    }
+
+    /* specific override for the 'creative side' colored spans */
+    .hobby-card span[style*="background"] {
+      background: #E1D2FC !important;  /* unified purple tint */
+      color: #2B1E45 !important;
+      border: 1px solid #B28DFF;
+    }
+
+    /* any leftover inline styles? align to purple theme */
+    .card [style*="color:#335577"] {
+      color: #463777 !important;       /* harmonise */
+    }
+
+    .card [style*="color:#3f546d"] {
+      color: #4A3B70 !important;
+    }
+
+    .card [style*="color:#1b3b4f"] {
+      color: #3F3170 !important;
+    }
+
+    /* extra polish: the "resilient & curious" box */
+    .card [style*="background: #eaf1fa"] {
+      background: #EEE2FF !important;
+      border: 1px solid #B591FF !important;
+      color: #2C2142 !important;
+    }
+
+    /* bottom contact background */
+    .card [style*="background:#f3f7fd"] {
+      background: #F1E8FF !important;
+      border-color: #C7ADFF !important;
     }
   </style>
-  <!-- load font (optional) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-  <!-- simple header with name & role (UI/UX friendly) -->
+  <!-- header with name & role -->
   <div class="profile-row section">
     <div class="name-title">
       <h1>Oniyilo Covenant Olamide</h1>
@@ -280,10 +348,10 @@
     </div>
   </div>
 
-  <!-- interactive part: small js greeting (non intrusive) -->
+  <!-- interactive greeting -->
   <div class="greet-message" id="welcomeBtn">👋 click for a data-inspired welcome</div>
 
-  <!-- contact area (flat, no icons but clean) -->
+  <!-- contact area -->
   <div class="contact-row section">
     <span class="contact-item"><strong>📞 WhatsApp</strong> 07013200060</span>
     <span class="contact-item"><strong>📱 call</strong> 08148741074</span>
@@ -291,56 +359,54 @@
     <span class="contact-item"><strong>📍</strong> Lagos, Nigeria</span>
   </div>
 
-  <!-- social + github / linkedin (consistent with data) -->
+  <!-- social links -->
   <div class="social-links section">
     <a href="#" class="social-link" id="githubLink">🐙 GitHub · covenanthubsabre</a>
     <a href="#" class="social-link" id="linkedinLink">🔗 LinkedIn · covenant oniyilo</a>
   </div>
 
-  <!-- main card: about me, hobby, learning & certification -->
+  <!-- main card: about, hobby, toolkit, cert -->
   <div class="card section">
-    <!-- short bio / introduction -->
     <h2>📋 profile</h2>
     <p style="font-size: 1.18rem; margin-bottom: 1.8rem; max-width: 700px;">I’m a mathematics undergraduate at Lagos State University (LASU) with a strong curiosity for patterns, both in numbers and in data. I love turning raw information into clear insights — currently building skills for a future as a data analyst / scientist.</p>
 
-    <!-- two-column grid for hobby & data tools -->
     <div class="grid-2col" style="margin-bottom: 1.2rem;">
-      <!-- left: hobby & music -->
+      <!-- creative side -->
       <div class="hobby-card">
         <h3>🎵 creative side</h3>
         <p><span style="background:#eaeef5; padding:0.1rem 0.8rem; border-radius:30px;">🎤 singing</span>  <span style="background:#eaeef5; padding:0.1rem 0.8rem; border-radius:30px;">🎧 listening to music</span></p>
-        <p style="margin-top:1rem; color:#335577;">I find deep pleasure in melodies — they keep my thoughts organised, just like tidy datasets.</p>
+        <p style="margin-top:1rem; color:#463777;">I find deep pleasure in melodies — they keep my thoughts organised, just like tidy datasets.</p>
       </div>
-      <!-- right: data toolkit & learning -->
+      <!-- data toolkit -->
       <div class="hobby-card">
-        <h3>📈 data toolkit</h3>
+        <h3>📈 Data toolkit</h3>
         <p><span class="skill-tag excel">Microsoft Excel (mastering)</span> <span class="skill-tag python">Python (intro)</span></p>
         <p style="margin-top:0.8rem;">▪️ mastering data analysis with Excel<br>▪️ introduction to data analytics with Python</p>
       </div>
     </div>
 
-    <!-- extra info: aspirations & github / email repeated lightly -->
+    <!-- aspirations & cert -->
     <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin: 1.2rem 0 1rem;">
       <div>
         <h3>🔭 aspiring</h3>
-        <p>Data Analyst · Data Scientist<br> <span style="color:#3f546d;">(building the foundation now)</span></p>
+        <p>Data Analyst · Data Scientist<br> <span style="color:#4A3B70;">(building the foundation now)</span></p>
       </div>
       <div>
         <h3>📌 cert</h3>
         <div class="cert-item" style="margin-bottom:0; padding:0.7rem 1.2rem;">
-          <strong>Scrum Alliance certification</strong> (2023) <span style="color:#3e5d7a;">— agile mindset</span>
+          <strong>Scrum Alliance certification</strong> (2023) <span style="color:#4A3B70;">— agile mindset</span>
         </div>
       </div>
     </div>
 
-    <!-- full name & additional detail (as given) -->
-    <div style="background:#f3f7fd; border-radius: 40px; padding: 1rem 1.8rem; margin-top: 1.5rem; border:1px solid #d7e2f0;">
+    <!-- full name & extra detail -->
+    <div style="background:#F1E8FF; border-radius: 40px; padding: 1rem 1.8rem; margin-top: 1.5rem; border:1px solid #C7ADFF;">
       <p><span style="font-weight:500;">GitHub:</span> covenanthubsabre  |  <span style="font-weight:500;">LinkedIn:</span> covenant oniyilo  |  <span style="font-weight:500;">Email:</span> oniyilocovenant@gmail.com</p>
       <p style="margin-top:0.4rem;"><span style="font-weight:500;">Scrum certification</span> (2023) · LASU mathematics · aspiring data professional</p>
     </div>
   </div>
 
-  <!-- extra section: more about "why data" + mathematics synergy (human touch) -->
+  <!-- extra: mathematics ➔ data science -->
   <div class="card" style="margin-top: 1.5rem;">
     <h2>🧮 mathematics ➔ data science</h2>
     <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
@@ -348,25 +414,22 @@
         <p style="font-size:1.1rem">Studying mathematics taught me to think in structures, probabilities, and logical frameworks — exactly what data analysis demands. I’m combining that with Python and Excel to tell stories with data.</p>
         <p style="margin-top: 1rem;">🔹 <strong>currently:</strong> deep-dive into pandas, Excel power query & visualisation.</p>
       </div>
-      <div style="background: #eaf1fa; border-radius: 80px; padding: 1.2rem 2rem; text-align: center; flex: 0.8;">
-        <span style="font-weight: 500; font-size: 1.3rem; color:#1b3b4f;">“resilient & curious”</span>
+      <div style="background: #EEE2FF; border-radius: 80px; padding: 1.2rem 2rem; text-align: center; flex: 0.8; border:1px solid #B591FF;">
+        <span style="font-weight: 500; font-size: 1.3rem; color:#2C2142;">“resilient & curious”</span>
       </div>
     </div>
   </div>
 
-  <!-- footer / contact again minimalist -->
+  <!-- footer -->
   <div class="footnote">
-    📬 07013200060 (WhatsApp) · 08148741074 · oniyilocovenant@gmail.com <br style="display: none;">
-    <span style="display: inline-block; margin-top: 1rem;">© 2025 Oniyilo Covenant Olamide – built static, no AI colours, just ui/ux</span>
+    📬 07013200060 (WhatsApp) · 08148741074 · oniyilocovenant@gmail.com
+    <span style="display: inline-block; margin-top: 1rem;">© 2025 Oniyilo Covenant Olamide – purple harmony, ui/ux focused</span>
   </div>
 </div>
 
-<!-- small script.js for non‑AI interactivity and dynamic year -->
+<!-- script.js (same interactive touches) -->
 <script>
   (function() {
-    // script.js — tiny interactive details, no AI palette, only human UX touches
-
-    // 1) welcome message (on click)
     const welcomeEl = document.getElementById('welcomeBtn');
     if (welcomeEl) {
       welcomeEl.addEventListener('click', function(e) {
@@ -382,7 +445,6 @@
       });
     }
 
-    // 2) social links — since no actual profiles required, we simulate a gentle message (but preserve href)
     const github = document.getElementById('githubLink');
     const linkedin = document.getElementById('linkedinLink');
 
@@ -400,26 +462,14 @@
       });
     }
 
-    // 3) optional: add current year in footer (cute detail)
     const footer = document.querySelector('.footnote');
     if (footer) {
       const year = new Date().getFullYear();
-      // but we keep original text, maybe just append year
-      if (!footer.innerHTML.includes('©')) {
-        // do nothing, but it's there
-      } else {
-        // update the year dynamically (already 2025 placeholder, replace with actual)
-        footer.innerHTML = footer.innerHTML.replace('2025', year);
-      }
+      footer.innerHTML = footer.innerHTML.replace('2025', year);
     }
 
-    // 4) tiny hover effect on contact items? fine as is.
-
-    // 5) extra: display a friendly greeting on console (just for dev)
-    console.log('👋 portfolio of Covenant Olamide — ui/ux, no AI colours');
+    console.log('👾 portfolio · purple aligned');
   })();
 </script>
-
-<!-- ensure email and phone are clickable / comfortable -->
 </body>
 </html>
