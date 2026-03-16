@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Covenant Olamide · portfolio</title>
+  <!-- clean, modern stack: no AI colours, just calm UI/UX -->
+  <style>
+    /* === style.css === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f8fafc;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.5;
+      color: #1e293b;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* smooth cards & surfaces */
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.03), 0 4px 8px rgba(0, 0, 0, 0.02);
+      padding: 2rem 2.2rem;
+      border: 1px solid #e9eef3;
+      transition: all 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.04);
+      border-color: #d0d9e3;
+    }
+
+    /* spacing */
+    .section {
+      margin-bottom: 2.8rem;
+    }
+
+    /* headings – clean, human, not AI */
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: #0f1825;
+      margin-bottom: 0.4rem;
+    }
+
+    .subhead {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #475569;
+      border-left: 4px solid #a5b4cb;
+      padding-left: 1.2rem;
+      margin-top: 0.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #1f2a41;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, #cbd5e1 30%, #eef2f6 90%);
+      margin-left: 1rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #2d3a5e;
+      margin-bottom: 0.6rem;
+    }
+
+    /* profile header */
+    .profile-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .name-title {
+      flex: 2;
+      min-width: 280px;
+    }
+
+    .quick-badge {
+      background: #edf2f7;
+      border-radius: 60px;
+      padding: 0.6rem 1.5rem;
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.5rem;
+      font-size: 1rem;
+      color: #25445c;
+      border: 1px solid #dde3ea;
+    }
+
+    .quick-badge span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .quick-badge i { font-style: normal; font-weight: 500; color: #0d2b3e; }
+
+    /* chips / tags */
+    .skill-tag {
+      background: #eef4ff;
+      color: #1d3a5c;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 450;
+      border: 1px solid #cdddec;
+      display: inline-block;
+      margin-right: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .skill-tag.python { background: #ecf7f0; border-color: #b7dac7; }
+    .skill-tag.excel { background: #e3f0e6; border-color: #b3d6bf; }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+      margin-top: 1.2rem;
+      background: #f5f9ff;
+      border-radius: 48px;
+      padding: 1rem 1.8rem;
+      border: 1px solid #dde5ef;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #1f3a57;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .contact-item strong {
+      font-weight: 550;
+      color: #0a1e2e;
+    }
+
+    .contact-item:hover { color: #0c4a6e; }
+
+    /* github / linkedin inline */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .social-link {
+      background: white;
+      border: 1px solid #cfddee;
+      border-radius: 40px;
+      padding: 0.5rem 1.3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: #1f3a57;
+      font-weight: 450;
+      transition: background 0.15s;
+    }
+
+    .social-link:hover {
+      background: #ecf3fd;
+      border-color: #9fb2cc;
+    }
+
+    /* hobby & about grid */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .hobby-card {
+      background: #fafdff;
+      border-radius: 24px;
+      padding: 1.6rem 1.8rem;
+      border: 1px solid #e2eaf2;
+    }
+
+    .hobby-card p { font-size: 1.15rem; margin-top: 0.5rem; }
+
+    .cert-item {
+      background: #f7fbff;
+      border-left: 5px solid #a7bdd6;
+      padding: 1rem 1.6rem;
+      border-radius: 18px;
+      margin-bottom: 1rem;
+    }
+
+    .footnote {
+      text-align: center;
+      color: #617388;
+      font-size: 0.9rem;
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 2rem;
+      margin-top: 2rem;
+    }
+
+    /* mobile fine-tune */
+    @media (max-width: 550px) {
+      body { padding: 1rem; }
+      h1 { font-size: 2.5rem; }
+      .card { padding: 1.5rem; }
+    }
+
+    /* simple interactive extras (js will add a little) */
+    .greet-message {
+      background: #f0f4fa;
+      border-radius: 60px;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.95rem;
+      color: #2b4a6b;
+      border: 1px solid #c7d8ec;
+      display: inline-block;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+    }
+
+    .greet-message:hover {
+      background: #e1eaf5;
+    }
+  </style>
+  <!-- load font (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <!-- simple header with name & role (UI/UX friendly) -->
+  <div class="profile-row section">
+    <div class="name-title">
+      <h1>Oniyilo Covenant Olamide</h1>
+      <div class="subhead">Mathematics student @ LASU · aspiring data analyst & scientist</div>
+    </div>
+    <div class="quick-badge">
+      <span>📊 #data</span>
+      <span>🎓 2023 Scrum certified</span>
+      <span>🐍 python · excel</span>
+    </div>
+  </div>
+
+  <!-- interactive part: small js greeting (non intrusive) -->
+  <div class="greet-message" id="welcomeBtn">👋 click for a data-inspired welcome</div>
+
+  <!-- contact area (flat, no icons but clean) -->
+  <div class="contact-row section">
+    <span class="contact-item"><strong>📞 WhatsApp</strong> 07013200060</span>
+    <span class="contact-item"><strong>📱 call</strong> 08148741074</span>
+    <a href="mailto:oniyilocovenant@gmail.com" class="contact-item"><strong>✉️</strong> oniyilocovenant@gmail.com</a>
+    <span class="contact-item"><strong>📍</strong> Lagos, Nigeria</span>
+  </div>
+
+  <!-- social + github / linkedin (consistent with data) -->
+  <div class="social-links section">
+    <a href="#" class="social-link" id="githubLink">🐙 GitHub · covenanthubsabre</a>
+    <a href="#" class="social-link" id="linkedinLink">🔗 LinkedIn · covenant oniyilo</a>
+  </div>
+
+  <!-- main card: about me, hobby, learning & certification -->
+  <div class="card section">
+    <!-- short bio / introduction -->
+    <h2>📋 profile</h2>
+    <p style="font-size: 1.18rem; margin-bottom: 1.8rem; max-width: 700px;">I’m a mathematics undergraduate at Lagos State University (LASU) with a strong curiosity for patterns, both in numbers and in data. I love turning raw information into clear insights — currently building skills for a future as a data analyst / scientist.</p>
+
+    <!-- two-column grid for hobby & data tools -->
+    <div class="grid-2col" style="margin-bottom: 1.2rem;">
+      <!-- left: hobby & music -->
+      <div class="hobby-card">
+        <h3>🎵 creative side</h3>
+        <p><span style="background:#eaeef5; padding:0.1rem 0.8rem; border-radius:30px;">🎤 singing</span>  <span style="background:#eaeef5; padding:0.1rem 0.8rem; border-radius:30px;">🎧 listening to music</span></p>
+        <p style="margin-top:1rem; color:#335577;">I find deep pleasure in melodies — they keep my thoughts organised, just like tidy datasets.</p>
+      </div>
+      <!-- right: data toolkit & learning -->
+      <div class="hobby-card">
+        <h3>📈 data toolkit</h3>
+        <p><span class="skill-tag excel">Microsoft Excel (mastering)</span> <span class="skill-tag python">Python (intro)</span></p>
+        <p style="margin-top:0.8rem;">▪️ mastering data analysis with Excel<br>▪️ introduction to data analytics with Python</p>
+      </div>
+    </div>
+
+    <!-- extra info: aspirations & github / email repeated lightly -->
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin: 1.2rem 0 1rem;">
+      <div>
+        <h3>🔭 aspiring</h3>
+        <p>Data Analyst · Data Scientist<br> <span style="color:#3f546d;">(building the foundation now)</span></p>
+      </div>
+      <div>
+        <h3>📌 cert</h3>
+        <div class="cert-item" style="margin-bottom:0; padding:0.7rem 1.2rem;">
+          <strong>Scrum Alliance certification</strong> (2023) <span style="color:#3e5d7a;">— agile mindset</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- full name & additional detail (as given) -->
+    <div style="background:#f3f7fd; border-radius: 40px; padding: 1rem 1.8rem; margin-top: 1.5rem; border:1px solid #d7e2f0;">
+      <p><span style="font-weight:500;">GitHub:</span> covenanthubsabre  |  <span style="font-weight:500;">LinkedIn:</span> covenant oniyilo  |  <span style="font-weight:500;">Email:</span> oniyilocovenant@gmail.com</p>
+      <p style="margin-top:0.4rem;"><span style="font-weight:500;">Scrum certification</span> (2023) · LASU mathematics · aspiring data professional</p>
+    </div>
+  </div>
+
+  <!-- extra section: more about "why data" + mathematics synergy (human touch) -->
+  <div class="card" style="margin-top: 1.5rem;">
+    <h2>🧮 mathematics ➔ data science</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+      <div style="flex: 2; min-width: 240px;">
+        <p style="font-size:1.1rem">Studying mathematics taught me to think in structures, probabilities, and logical frameworks — exactly what data analysis demands. I’m combining that with Python and Excel to tell stories with data.</p>
+        <p style="margin-top: 1rem;">🔹 <strong>currently:</strong> deep-dive into pandas, Excel power query & visualisation.</p>
+      </div>
+      <div style="background: #eaf1fa; border-radius: 80px; padding: 1.2rem 2rem; text-align: center; flex: 0.8;">
+        <span style="font-weight: 500; font-size: 1.3rem; color:#1b3b4f;">“resilient & curious”</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer / contact again minimalist -->
+  <div class="footnote">
+    📬 07013200060 (WhatsApp) · 08148741074 · oniyilocovenant@gmail.com <br style="display: none;">
+    <span style="display: inline-block; margin-top: 1rem;">© 2025 Oniyilo Covenant Olamide – built static, no AI colours, just ui/ux</span>
+  </div>
+</div>
+
+<!-- small script.js for non‑AI interactivity and dynamic year -->
+<script>
+  (function() {
+    // script.js — tiny interactive details, no AI palette, only human UX touches
+
+    // 1) welcome message (on click)
+    const welcomeEl = document.getElementById('welcomeBtn');
+    if (welcomeEl) {
+      welcomeEl.addEventListener('click', function(e) {
+        const messages = [
+          "📊 Hello analyst! ready to explore data?",
+          "🎵 singing & statistics — perfect harmony.",
+          "🐍 python + excel = 💙",
+          "📈 from LASU to data science world.",
+          "🔢 mathematics is the poetry of logical ideas."
+        ];
+        const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+        alert(randomMsg);
+      });
+    }
+
+    // 2) social links — since no actual profiles required, we simulate a gentle message (but preserve href)
+    const github = document.getElementById('githubLink');
+    const linkedin = document.getElementById('linkedinLink');
+
+    if (github) {
+      github.addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('🐙 GitHub: covenanthubsabre (copy from profile)');
+      });
+    }
+
+    if (linkedin) {
+      linkedin.addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('🔗 LinkedIn: covenant oniyilo — you can search manually');
+      });
+    }
+
+    // 3) optional: add current year in footer (cute detail)
+    const footer = document.querySelector('.footnote');
+    if (footer) {
+      const year = new Date().getFullYear();
+      // but we keep original text, maybe just append year
+      if (!footer.innerHTML.includes('©')) {
+        // do nothing, but it's there
+      } else {
+        // update the year dynamically (already 2025 placeholder, replace with actual)
+        footer.innerHTML = footer.innerHTML.replace('2025', year);
+      }
+    }
+
+    // 4) tiny hover effect on contact items? fine as is.
+
+    // 5) extra: display a friendly greeting on console (just for dev)
+    console.log('👋 portfolio of Covenant Olamide — ui/ux, no AI colours');
+  })();
+</script>
+
+<!-- ensure email and phone are clickable / comfortable -->
+</body>
+</html>
